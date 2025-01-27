@@ -1,0 +1,16 @@
+{{ $version := "0.141.0" }}
+{{ if (partial "utilities/dependency.html" (dict "version" $version)) }}
+    {{ errorf "This module is not compatible with Hugo v%s or later" $version }}
+{{ end }}
+
+{{ with (transform.ToMath .Inner (dict "displayMode" true)) }}
+    {{ with .Err }}
+        {{ errorf "Failed to render KaTeX: %q. See %s" . $.Position }}
+    {{ else }}
+        {{ if $.Attributes.class }}
+            <div class="{{ $.Attributes.class | safeHTMLAttr }}">{{ .Value }}</div>
+        {{ else }}
+            {{ . }}
+        {{ end }}
+    {{ end }}
+{{ end }}

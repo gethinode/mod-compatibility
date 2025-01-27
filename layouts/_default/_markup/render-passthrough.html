@@ -1,0 +1,18 @@
+{{ $opts := dict }}
+
+{{ $version := "0.141.0" }}
+{{ if (partial "utilities/dependency.html" (dict "version" $version)) }}
+    {{ errorf "This module is not compatible with Hugo v%s or later" $version }}
+{{ end }}
+
+{{ if eq .Type "block" }}
+    {{ $opts = dict "displayMode" true }}
+{{ end }}
+
+{{ with (transform.ToMath .Inner $opts) }}
+    {{ with .Err }}
+        {{ errorf "Failed to render KaTeX: %q. See %s" . $.Position }}
+    {{ else }}
+        {{ . }}
+    {{ end }}
+{{ end }}
