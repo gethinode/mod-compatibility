@@ -2,13 +2,9 @@
   [module.hugoVersion]
     extended = true
     min = "0.110.0"
-    max = ""
+    max = "0.140.2"
   [[module.mounts]]
     source = 'layouts'
     target = 'layouts'
-  [[module.mounts]]
-    source = 'assets'
-    target = 'assets'
-  [[module.mounts]]
-    source = 'static'
-    target = 'static'
+  [[module.imports]]
+    path = "github.com/gethinode/mod-utils/v2"
