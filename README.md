@@ -45,7 +45,7 @@ This module uses [semantic-release][semantic-release] to automate the release of
 
 ## Configuration
 
-Mount this module last in the site's module configuration to replace Hinode's partials and render hooks that are incompatible with Hugo &lt;v0.141.0. The following module configuration is an example (define the configuration in e.g. `hugo.toml`).
+Mount this module first in the site's module configuration to replace Hinode's partials and render hooks that are incompatible with Hugo &lt;v0.141.0. The following module configuration is an example (define the configuration in e.g. `hugo.toml`).
 
 ```toml
 [module]
@@ -54,9 +54,9 @@ Mount this module last in the site's module configuration to replace Hinode's pa
     min = "0.120.0"
     max = "0.140.2"
   [[module.imports]]
-    path = "github.com/gethinode/hinode"
-  [[module.imports]]
     path = "github.com/gethinode/mod-compatibility"
+  [[module.imports]]
+    path = "github.com/gethinode/hinode"
 ```
 
 <!-- MARKDOWN LINKS -->

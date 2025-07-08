@@ -1,6 +1,6 @@
 {
   "name": "@gethinode/mod-compatibility",
-  "version": "1.0.0",
+  "version": "0.0.0-semantically-released",
   "description": "A Hugo module to add backwards compability with Hugo <0.141.0 to your Hinode site",
   "keywords": [
     "hugo",
@@ -57,7 +57,6 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/github",
-      "@semantic-release/npm",
       [
         "@semantic-release/exec",
         {
